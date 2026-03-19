@@ -1,0 +1,981 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Gujju Esports – Gujarat's No.1 Esports Brand</title>
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Exo+2:wght@300;400;600;700&family=Orbitron:wght@700;900&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --saffron:#FF6F00;--sf-l:#FFA040;--green:#138808;--gl:#1fb80f;
+  --dark:#0a0a10;--dark2:#10101a;--card:#12121e;
+  --border:rgba(255,111,0,0.18);--text:#e8e8f0;--muted:#7a7a9a;--white:#ffffff;
+}
+*{margin:0;padding:0;box-sizing:border-box;}html{scroll-behavior:smooth;}
+body{background:var(--dark);color:var(--text);font-family:'Exo 2',sans-serif;overflow-x:hidden;}
+::-webkit-scrollbar{width:6px;}::-webkit-scrollbar-track{background:var(--dark2);}::-webkit-scrollbar-thumb{background:var(--saffron);border-radius:3px;}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(10,10,16,0.93);backdrop-filter:blur(14px);border-bottom:1px solid var(--border);padding:0 5%;}
+.ni{display:flex;align-items:center;justify-content:space-between;height:64px;}
+.nl{display:flex;align-items:center;gap:10px;text-decoration:none;}
+.nli{width:38px;height:38px;background:linear-gradient(135deg,var(--saffron),#ff3d00);border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:'Orbitron',sans-serif;font-size:14px;font-weight:900;color:#fff;}
+.nlt{font-family:'Orbitron',sans-serif;font-size:13px;font-weight:700;color:var(--white);letter-spacing:1px;}
+.nls{font-size:9px;color:var(--saffron);letter-spacing:2px;display:block;margin-top:-2px;}
+.nav-links{display:flex;gap:20px;list-style:none;}
+.nav-links a{color:var(--muted);text-decoration:none;font-size:11px;font-weight:600;letter-spacing:1px;text-transform:uppercase;transition:color .2s;}
+.nav-links a:hover{color:var(--saffron);}
+.nav-cta{background:var(--saffron);color:#fff;padding:8px 18px;border-radius:6px;font-size:12px;font-weight:700;letter-spacing:1px;transition:all .2s;border:none;cursor:pointer;}
+.nav-cta:hover{background:var(--sf-l);}
+.ham{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px;}
+.ham span{width:24px;height:2px;background:var(--text);display:block;}
+.mm{display:none;position:fixed;top:64px;left:0;right:0;background:rgba(10,10,16,0.98);padding:18px 5%;border-bottom:1px solid var(--border);z-index:999;}
+.mm.open{display:block;}
+.mm a{display:block;color:var(--text);text-decoration:none;font-size:14px;font-weight:600;padding:11px 0;border-bottom:1px solid rgba(255,255,255,0.05);letter-spacing:1px;text-transform:uppercase;}
+
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;padding:100px 5% 60px;}
+.hbg{position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(255,111,0,0.12) 0%,transparent 70%),radial-gradient(ellipse 60% 50% at 80% 80%,rgba(19,136,8,0.07) 0%,transparent 60%);pointer-events:none;}
+.hgrid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,111,0,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,111,0,0.04) 1px,transparent 1px);background-size:40px 40px;pointer-events:none;}
+.hc{text-align:center;position:relative;z-index:2;max-width:920px;}
+.hbadge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,111,0,0.12);border:1px solid rgba(255,111,0,0.3);border-radius:50px;padding:6px 16px;margin-bottom:20px;font-size:12px;font-weight:600;letter-spacing:2px;color:var(--saffron);text-transform:uppercase;}
+.hero h1{font-family:'Orbitron',sans-serif;font-size:clamp(34px,8vw,80px);font-weight:900;line-height:1.05;margin-bottom:12px;color:var(--white);}
+.hero h1 span{color:var(--saffron);display:block;}
+.htag{font-family:'Rajdhani',sans-serif;font-size:clamp(13px,2.5vw,19px);font-weight:600;letter-spacing:4px;color:var(--saffron);text-transform:uppercase;margin-bottom:18px;border:1px solid rgba(255,111,0,0.3);display:inline-block;padding:8px 22px;border-radius:4px;}
+.hdesc{font-size:15px;color:var(--muted);max-width:570px;margin:0 auto 28px;line-height:1.7;}
+.prize-strip{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:28px;}
+.pp{display:flex;align-items:center;gap:7px;padding:8px 16px;border-radius:50px;border:1px solid;font-size:13px;font-weight:700;}
+.pp.f{background:rgba(255,215,0,0.08);border-color:rgba(255,215,0,0.3);color:#FFD700;}
+.pp.s{background:rgba(192,192,192,0.06);border-color:rgba(192,192,192,0.25);color:#C0C0C0;}
+.pp.t{background:rgba(205,127,50,0.08);border-color:rgba(205,127,50,0.25);color:#CD7F32;}
+.hgames{display:flex;gap:9px;justify-content:center;flex-wrap:wrap;margin-bottom:28px;}
+.gchip{background:rgba(255,111,0,0.1);border:1px solid rgba(255,111,0,0.25);border-radius:50px;padding:5px 15px;font-size:13px;font-weight:600;color:var(--sf-l);}
+.hbtns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
+.btn-p{background:var(--saffron);color:#fff;padding:13px 30px;border-radius:8px;text-decoration:none;font-size:14px;font-weight:700;letter-spacing:1px;transition:all .25s;border:none;cursor:pointer;display:inline-block;}
+.btn-p:hover{background:var(--sf-l);transform:translateY(-2px);box-shadow:0 8px 28px rgba(255,111,0,0.4);}
+.btn-o{background:transparent;color:var(--text);padding:13px 30px;border-radius:8px;text-decoration:none;font-size:14px;font-weight:700;letter-spacing:1px;transition:all .25s;border:1px solid rgba(255,255,255,0.2);cursor:pointer;display:inline-block;}
+.btn-o:hover{border-color:var(--saffron);color:var(--saffron);}
+.hscroll{position:absolute;bottom:26px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:7px;color:var(--muted);font-size:10px;letter-spacing:2px;animation:bounce 2s infinite;}
+.hscroll::after{content:'';width:1px;height:34px;background:linear-gradient(var(--saffron),transparent);display:block;}
+@keyframes bounce{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(6px)}}
+
+section{padding:80px 5%;}
+.alt{background:var(--dark2);}
+.slabel{font-size:11px;font-weight:600;letter-spacing:4px;color:var(--saffron);text-transform:uppercase;margin-bottom:8px;}
+.stitle{font-family:'Rajdhani',sans-serif;font-size:clamp(24px,5vw,44px);font-weight:700;color:var(--white);margin-bottom:8px;}
+.ssub{font-size:14px;color:var(--muted);max-width:530px;line-height:1.7;margin-bottom:36px;}
+
+.stats-strip{background:linear-gradient(90deg,rgba(255,111,0,0.08),rgba(19,136,8,0.06));border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:32px 5%;}
+.sg{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:16px;text-align:center;}
+.si .num{font-family:'Orbitron',sans-serif;font-size:clamp(22px,5vw,36px);font-weight:700;color:var(--saffron);}
+.si .lbl{font-size:11px;color:var(--muted);margin-top:3px;letter-spacing:1px;}
+
+/* PRIZE BANNER */
+.prize-banner{background:linear-gradient(135deg,rgba(255,111,0,0.1),rgba(19,136,8,0.08));border:1px solid rgba(255,111,0,0.2);border-radius:14px;padding:24px 28px;margin-bottom:36px;display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;}
+.pb-lbl{font-size:11px;font-weight:600;letter-spacing:3px;color:var(--muted);text-transform:uppercase;width:100%;text-align:center;margin-bottom:6px;}
+.pb{text-align:center;padding:14px 24px;border-radius:12px;flex:1;min-width:110px;max-width:180px;}
+.pb.f{background:rgba(255,215,0,0.1);border:1px solid rgba(255,215,0,0.25);}
+.pb.s{background:rgba(192,192,192,0.07);border:1px solid rgba(192,192,192,0.2);}
+.pb.t{background:rgba(205,127,50,0.08);border:1px solid rgba(205,127,50,0.2);}
+.pb .pi{font-size:26px;display:block;margin-bottom:5px;}
+.pb .pp2{font-size:10px;letter-spacing:2px;font-weight:600;margin-bottom:3px;text-transform:uppercase;}
+.pb.f .pp2{color:#FFD700;}.pb.s .pp2{color:#C0C0C0;}.pb.t .pp2{color:#CD7F32;}
+.pb .pa{font-family:'Orbitron',sans-serif;font-size:20px;font-weight:700;color:var(--white);}
+.pb-note{font-size:11px;color:var(--muted);text-align:center;margin-top:-28px;margin-bottom:32px;}
+
+/* GAME CARDS */
+.games-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:18px;}
+.gc{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:26px;position:relative;overflow:hidden;transition:all .3s;cursor:pointer;}
+.gc::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--saffron),var(--green));}
+.gc:hover{transform:translateY(-4px);border-color:rgba(255,111,0,0.4);box-shadow:0 18px 46px rgba(255,111,0,0.1);}
+.gico{width:56px;height:56px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:26px;margin-bottom:14px;}
+.gico.coc{background:rgba(255,193,7,0.15);}
+.gico.bgmi{background:rgba(255,111,0,0.15);}
+.gico.cod{background:rgba(76,175,80,0.15);}
+.gc h3{font-family:'Rajdhani',sans-serif;font-size:21px;font-weight:700;color:var(--white);margin-bottom:6px;}
+.gc p{font-size:13px;color:var(--muted);line-height:1.6;margin-bottom:12px;}
+.rank-preview{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:12px;}
+.rm{font-size:10px;font-weight:600;padding:2px 7px;border-radius:3px;}
+.ger{display:flex;align-items:center;justify-content:space-between;padding-top:10px;border-top:1px solid rgba(255,255,255,0.06);}
+.ge{font-size:13px;color:var(--saffron);font-weight:700;}
+.gp{font-size:11px;color:var(--muted);}
+.hot{position:absolute;top:12px;right:12px;background:var(--saffron);color:#fff;font-size:10px;font-weight:700;letter-spacing:1px;padding:2px 8px;border-radius:4px;text-transform:uppercase;}
+
+/* RANK TIERS */
+.tier-tabs{display:flex;gap:7px;margin-bottom:24px;flex-wrap:wrap;}
+.ttab{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:8px;padding:8px 16px;font-size:13px;font-weight:600;color:var(--muted);cursor:pointer;transition:.2s;}
+.ttab.active{background:var(--saffron);border-color:var(--saffron);color:#fff;}
+.tp{display:none;}
+.tp.active{display:block;}
+.tgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;}
+.tc{background:var(--card);border-radius:12px;overflow:hidden;transition:.3s;}
+.tc:hover{transform:translateY(-3px);}
+.tch{padding:14px 16px 10px;display:flex;align-items:center;justify-content:space-between;}
+.tn{font-family:'Rajdhani',sans-serif;font-size:17px;font-weight:700;color:var(--white);}
+.ttg{font-size:10px;font-weight:600;letter-spacing:2px;padding:2px 8px;border-radius:3px;text-transform:uppercase;}
+.tcb{padding:0 16px 16px;}
+.tranks{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:10px;}
+.trb{font-size:11px;font-weight:600;padding:3px 9px;border-radius:4px;}
+.tpr{display:flex;gap:5px;flex-wrap:wrap;}
+.tpz{font-size:11px;font-weight:700;padding:4px 9px;border-radius:4px;text-align:center;}
+.tpz.g{background:rgba(255,215,0,0.1);color:#FFD700;}
+.tpz.s{background:rgba(192,192,192,0.08);color:#C0C0C0;}
+.tpz.b{background:rgba(205,127,50,0.08);color:#CD7F32;}
+.te{font-size:11px;color:var(--muted);margin-top:7px;}
+/* rank badge colors */
+.r-bro{background:rgba(205,127,50,0.15);color:#CD7F32;}
+.r-sil{background:rgba(192,192,192,0.12);color:#C0C0C0;}
+.r-gol{background:rgba(255,215,0,0.12);color:#FFD700;}
+.r-pla{background:rgba(110,198,255,0.12);color:#6EC6FF;}
+.r-dia{background:rgba(123,94,167,0.15);color:#A78BCC;}
+.r-cro{background:rgba(244,185,66,0.15);color:#F4B942;}
+.r-ace{background:rgba(232,77,77,0.15);color:#E84D4D;}
+.r-acm{background:rgba(255,107,53,0.15);color:#FF6B35;}
+.r-acd{background:rgba(255,51,102,0.15);color:#FF3366;}
+.r-con{background:rgba(138,43,226,0.18);color:#9B59FF;}
+.r-th1{background:rgba(76,175,80,0.12);color:#66BB6A;}
+.r-th2{background:rgba(255,152,0,0.12);color:#FFB74D;}
+.r-th3{background:rgba(233,30,99,0.12);color:#F06292;}
+.r-th4{background:rgba(156,39,176,0.15);color:#CE93D8;}
+/* tier header colors */
+.tc-t1{border-top:3px solid #66BB6A;}.tc-t2{border-top:3px solid #FFB74D;}.tc-t3{border-top:3px solid #F06292;}.tc-t4{border-top:3px solid #CE93D8;}
+.ttg-t1{background:rgba(76,175,80,0.15);color:#66BB6A;}.ttg-t2{background:rgba(255,152,0,0.15);color:#FFB74D;}.ttg-t3{background:rgba(233,30,99,0.12);color:#F06292;}.ttg-t4{background:rgba(156,39,176,0.15);color:#CE93D8;}
+.cod-open{background:rgba(76,175,80,0.12);border:1px solid rgba(76,175,80,0.25);color:#66BB6A;font-size:11px;font-weight:600;padding:3px 10px;border-radius:4px;letter-spacing:1px;}
+
+/* HOW IT WORKS */
+.hsteps{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:16px;}
+.hsc{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:22px 18px;text-align:center;}
+.hnum{width:42px;height:42px;border-radius:50%;background:rgba(255,111,0,0.12);border:2px solid rgba(255,111,0,0.3);display:flex;align-items:center;justify-content:center;font-family:'Orbitron',sans-serif;font-size:15px;font-weight:900;color:var(--saffron);margin:0 auto 10px;}
+.hico{font-size:22px;display:block;margin-bottom:7px;}
+.hsc h4{font-family:'Rajdhani',sans-serif;font-size:16px;font-weight:700;color:var(--white);margin-bottom:4px;}
+.hsc p{font-size:12px;color:var(--muted);line-height:1.55;}
+
+/* SCHEDULE */
+.stabs{display:flex;gap:7px;margin-bottom:20px;flex-wrap:wrap;}
+.stab{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:7px;padding:7px 14px;font-size:12px;font-weight:600;color:var(--muted);cursor:pointer;transition:.2s;}
+.stab.active{background:var(--saffron);border-color:var(--saffron);color:#fff;}
+.slist{display:flex;flex-direction:column;gap:9px;}
+.si-item{background:var(--card);border:1px solid var(--border);border-radius:11px;padding:14px 18px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;transition:.2s;}
+.si-item:hover{border-color:rgba(255,111,0,0.35);}
+.sdate{text-align:center;min-width:46px;}
+.sdate .day{font-family:'Orbitron',sans-serif;font-size:18px;font-weight:700;color:var(--saffron);}
+.sdate .mon{font-size:10px;color:var(--muted);letter-spacing:1px;text-transform:uppercase;}
+.sdivider{width:1px;height:40px;background:rgba(255,255,255,0.07);flex-shrink:0;}
+.sinfo{flex:1;min-width:150px;}
+.sinfo h4{font-family:'Rajdhani',sans-serif;font-size:15px;font-weight:700;color:var(--white);margin-bottom:2px;}
+.sinfo p{font-size:11px;color:var(--muted);}
+.smeta{display:flex;gap:7px;align-items:center;flex-wrap:wrap;}
+.sgt{background:rgba(255,111,0,0.1);border:1px solid rgba(255,111,0,0.2);color:var(--saffron);font-size:10px;font-weight:600;padding:2px 8px;border-radius:4px;letter-spacing:1px;}
+.ttsm{font-size:10px;font-weight:600;padding:2px 8px;border-radius:4px;letter-spacing:1px;}
+.sst{font-size:10px;font-weight:600;padding:2px 8px;border-radius:4px;}
+.sst.up{background:rgba(255,193,7,0.1);color:#ffc107;}
+.sst.live{background:rgba(19,136,8,0.15);color:var(--gl);animation:pulse 1.5s infinite;}
+.sst.done{background:rgba(255,255,255,0.05);color:var(--muted);}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.6}}
+.spr{font-family:'Rajdhani',sans-serif;font-size:14px;font-weight:700;color:var(--saffron);min-width:52px;text-align:right;}
+
+/* LEADERBOARD */
+.lbw{background:var(--card);border:1px solid var(--border);border-radius:14px;overflow:hidden;}
+.lbhdr{display:grid;grid-template-columns:50px 1fr 82px 70px 70px 80px;gap:4px;padding:10px 18px;background:rgba(255,111,0,0.06);border-bottom:1px solid var(--border);}
+.lbhc{font-size:10px;font-weight:600;letter-spacing:1px;color:var(--muted);text-transform:uppercase;}
+.lbhc.r{text-align:right;}
+.lbr{display:grid;grid-template-columns:50px 1fr 82px 70px 70px 80px;gap:4px;padding:12px 18px;border-bottom:1px solid rgba(255,255,255,0.04);align-items:center;transition:.2s;}
+.lbr:last-child{border-bottom:none;}
+.lbr:hover{background:rgba(255,255,255,0.02);}
+.lbrk{font-family:'Orbitron',sans-serif;font-size:13px;font-weight:700;}
+.lbrk.go{color:#FFD700;}.lbrk.si{color:#C0C0C0;}.lbrk.br{color:#CD7F32;}.lbrk.no{color:var(--muted);}
+.lbpl{display:flex;align-items:center;gap:8px;}
+.lbav{width:30px;height:30px;border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:#fff;flex-shrink:0;}
+.lbn{font-weight:600;font-size:12px;color:var(--white);}
+.lbt{font-size:10px;color:var(--muted);}
+.lbs{font-size:12px;font-weight:600;color:var(--text);text-align:right;}
+.lbs.h{color:var(--saffron);}
+
+/* TEAM */
+.tgrid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;}
+.tcard{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:26px;text-align:center;transition:.3s;position:relative;overflow:hidden;}
+.tcard::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:80%;height:2px;background:linear-gradient(90deg,transparent,var(--saffron),transparent);}
+.tcard:hover{transform:translateY(-4px);}
+.tav{width:74px;height:74px;border-radius:50%;margin:0 auto 12px;background:linear-gradient(135deg,var(--saffron),#ff3d00);display:flex;align-items:center;justify-content:center;font-family:'Orbitron',sans-serif;font-size:22px;font-weight:900;color:#fff;border:3px solid rgba(255,111,0,0.3);}
+.tnm{font-family:'Rajdhani',sans-serif;font-size:21px;font-weight:700;color:var(--white);margin-bottom:3px;}
+.trl{font-size:11px;font-weight:600;letter-spacing:2px;color:var(--saffron);text-transform:uppercase;margin-bottom:9px;}
+.tbi{font-size:13px;color:var(--muted);line-height:1.6;}
+
+/* FOOTER */
+footer{background:var(--dark2);border-top:1px solid var(--border);padding:48px 5% 30px;}
+.ftop{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:36px;margin-bottom:36px;}
+.flogo{font-family:'Orbitron',sans-serif;font-size:17px;font-weight:900;color:var(--white);margin-bottom:9px;}
+.flogo span{color:var(--saffron);}
+.fdesc{font-size:12px;color:var(--muted);line-height:1.7;max-width:230px;}
+.fsoc{display:flex;gap:8px;margin-top:14px;}
+.fsb{width:34px;height:34px;border-radius:8px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);display:flex;align-items:center;justify-content:center;font-size:14px;transition:.2s;text-decoration:none;color:var(--text);}
+.fsb:hover{background:var(--saffron);border-color:var(--saffron);}
+.fcol h4{font-family:'Rajdhani',sans-serif;font-size:14px;font-weight:700;color:var(--white);margin-bottom:11px;letter-spacing:1px;}
+.fcol a{display:block;color:var(--muted);text-decoration:none;font-size:12px;margin-bottom:7px;transition:.2s;}
+.fcol a:hover{color:var(--saffron);}
+.fbot{display:flex;align-items:center;justify-content:space-between;padding-top:18px;border-top:1px solid rgba(255,255,255,0.06);flex-wrap:wrap;gap:9px;}
+.fbot p{font-size:11px;color:var(--muted);}
+.alink{font-size:10px;color:rgba(255,255,255,0.06);cursor:pointer;transition:.3s;background:none;border:none;padding:4px 7px;}
+.alink:hover{color:rgba(255,255,255,0.3);}
+
+/* MODAL */
+.moverlay{position:fixed;inset:0;background:rgba(0,0,0,0.87);z-index:2000;display:none;align-items:center;justify-content:center;padding:14px;backdrop-filter:blur(10px);}
+.moverlay.open{display:flex;}
+.mbox{background:var(--dark2);border:1px solid var(--border);border-radius:18px;width:100%;max-width:490px;max-height:92vh;overflow-y:auto;}
+.mhdr{padding:18px 22px 11px;border-bottom:1px solid rgba(255,255,255,0.06);display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;background:var(--dark2);z-index:10;}
+.mhdr h3{font-family:'Rajdhani',sans-serif;font-size:18px;font-weight:700;color:var(--white);}
+.mcls{background:none;border:none;color:var(--muted);font-size:20px;cursor:pointer;padding:0;line-height:1;}
+.mcls:hover{color:var(--white);}
+.mbody{padding:22px;}
+.sindic{display:flex;align-items:center;margin-bottom:22px;}
+.sdot{width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;transition:.3s;flex-shrink:0;}
+.sdot.active{background:var(--saffron);color:#fff;}
+.sdot.done{background:var(--green);color:#fff;}
+.sdot.pending{background:rgba(255,255,255,0.07);color:var(--muted);border:1px solid rgba(255,255,255,0.1);}
+.sline{flex:1;height:2px;transition:.3s;}
+.sline.done{background:var(--green);}.sline.active{background:var(--saffron);}.sline.inactive{background:rgba(255,255,255,0.08);}
+.fg{margin-bottom:12px;}
+.fg label{display:block;font-size:10px;font-weight:600;letter-spacing:1px;color:var(--muted);margin-bottom:4px;text-transform:uppercase;}
+.fg input,.fg select{width:100%;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:8px;padding:10px 12px;color:var(--text);font-family:'Exo 2',sans-serif;font-size:13px;outline:none;transition:border .2s;}
+.fg input:focus,.fg select:focus{border-color:var(--saffron);}
+.fg select option{background:var(--dark2);}
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.rib{display:none;background:rgba(255,111,0,0.05);border:1px solid rgba(255,111,0,0.18);border-radius:7px;padding:10px 12px;margin-top:5px;}
+.rib.show{display:block;}
+.rib p{font-size:12px;color:var(--muted);line-height:1.5;}
+.rib strong{color:var(--saffron);}
+.mbtn{width:100%;background:var(--saffron);border:none;color:#fff;padding:12px;border-radius:8px;font-family:'Exo 2',sans-serif;font-size:13px;font-weight:700;letter-spacing:1px;cursor:pointer;transition:all .25s;margin-top:5px;}
+.mbtn:hover{background:var(--sf-l);}
+.mbtn-o{width:100%;background:transparent;border:1px solid rgba(255,255,255,0.1);color:var(--muted);padding:10px;border-radius:8px;font-family:'Exo 2',sans-serif;font-size:12px;font-weight:600;cursor:pointer;transition:.2s;margin-top:6px;}
+.mbtn-o:hover{border-color:var(--saffron);color:var(--saffron);}
+.pamount{text-align:center;margin-bottom:16px;padding:14px;background:rgba(255,111,0,0.06);border:1px solid rgba(255,111,0,0.18);border-radius:11px;}
+.pamount .rp{font-family:'Orbitron',sans-serif;font-size:42px;font-weight:900;color:var(--saffron);}
+.pamount p{font-size:11px;color:var(--muted);margin-top:2px;letter-spacing:1px;}
+.qrwrap{display:flex;justify-content:center;margin-bottom:14px;}
+#qrcode{padding:8px;background:#fff;border-radius:11px;display:inline-block;}
+#qrcode canvas,#qrcode img{display:block;}
+.upibox{background:rgba(255,111,0,0.05);border:1px solid rgba(255,111,0,0.18);border-radius:9px;padding:11px 13px;margin-bottom:12px;}
+.upilbl{font-size:10px;color:var(--muted);letter-spacing:1px;margin-bottom:4px;text-transform:uppercase;}
+.upirow{display:flex;align-items:center;justify-content:space-between;gap:7px;}
+.upiid{font-family:'Orbitron',sans-serif;font-size:12px;color:var(--saffron);font-weight:700;word-break:break-all;}
+.cbtn{background:none;border:1px solid rgba(255,111,0,0.3);color:var(--saffron);font-size:10px;padding:2px 8px;border-radius:4px;cursor:pointer;flex-shrink:0;font-family:'Exo 2',sans-serif;}
+.cbtn:hover{background:rgba(255,111,0,0.1);}
+.psteps{list-style:none;margin-bottom:12px;}
+.psteps li{display:flex;gap:8px;font-size:12px;color:var(--muted);padding:5px 0;border-bottom:1px solid rgba(255,255,255,0.04);}
+.psteps li:last-child{border-bottom:none;}
+.psteps li span{color:var(--saffron);font-weight:700;flex-shrink:0;}
+.utrbox{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);border-radius:9px;padding:12px;margin-bottom:14px;}
+.utrbox p{font-size:12px;color:var(--muted);line-height:1.6;}
+.utrbox strong{color:var(--white);}
+.regsuc{text-align:center;padding:10px 0;}
+.regsuc .si2{font-size:52px;display:block;margin-bottom:10px;}
+.regsuc h3{font-family:'Rajdhani',sans-serif;font-size:22px;font-weight:700;color:var(--white);margin-bottom:6px;}
+.regsuc p{font-size:13px;color:var(--muted);line-height:1.6;margin-bottom:14px;}
+.sumbox{background:rgba(255,111,0,0.05);border:1px solid rgba(255,111,0,0.18);border-radius:9px;padding:12px 14px;margin-bottom:14px;text-align:left;}
+.sumbox p{font-size:12px;color:var(--text);margin-bottom:4px;}
+.sumbox p:last-child{margin-bottom:0;}
+.sumbox strong{color:var(--saffron);}
+
+/* ADMIN */
+.aoverlay{position:fixed;inset:0;background:#080810;z-index:3000;display:none;flex-direction:column;}
+.aoverlay.open{display:flex;}
+.ahdr{background:var(--dark2);border-bottom:1px solid var(--border);padding:12px 18px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0;}
+.ahdr h2{font-family:'Orbitron',sans-serif;font-size:12px;font-weight:700;color:var(--saffron);letter-spacing:1px;}
+.abody{padding:18px;flex:1;overflow-y:auto;}
+.astats{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin-bottom:16px;}
+.astat{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px;text-align:center;}
+.astat .n{font-family:'Orbitron',sans-serif;font-size:22px;font-weight:700;color:var(--saffron);}
+.astat .l{font-size:10px;color:var(--muted);margin-top:2px;letter-spacing:1px;}
+.aacts{display:flex;gap:8px;margin-bottom:13px;flex-wrap:wrap;align-items:center;}
+.abtn{background:rgba(255,111,0,0.08);border:1px solid rgba(255,111,0,0.25);color:var(--saffron);padding:7px 14px;border-radius:7px;font-size:11px;font-weight:600;cursor:pointer;transition:.2s;font-family:'Exo 2',sans-serif;letter-spacing:1px;}
+.abtn:hover{background:rgba(255,111,0,0.18);}
+.abtn.danger{border-color:rgba(226,75,74,0.3);color:#e24b4a;background:rgba(226,75,74,0.05);}
+.asearch{flex:1;min-width:150px;}
+.asearch input,.asearch select{width:100%;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:7px;padding:7px 11px;color:var(--text);font-family:'Exo 2',sans-serif;font-size:11px;outline:none;transition:.2s;}
+.asearch input:focus{border-color:var(--saffron);}
+.asearch select option{background:var(--dark2);}
+.atwrap{background:var(--card);border:1px solid var(--border);border-radius:11px;overflow:auto;}
+.atable{width:100%;border-collapse:collapse;font-size:11px;min-width:1000px;}
+.atable th{background:rgba(255,111,0,0.07);padding:9px 12px;text-align:left;font-size:9px;font-weight:600;letter-spacing:1px;color:var(--muted);text-transform:uppercase;border-bottom:1px solid var(--border);white-space:nowrap;}
+.atable td{padding:9px 12px;border-bottom:1px solid rgba(255,255,255,0.04);color:var(--text);vertical-align:middle;}
+.atable tr:last-child td{border-bottom:none;}
+.atable tr:hover td{background:rgba(255,255,255,0.02);}
+.sbadge{font-size:10px;font-weight:600;padding:2px 6px;border-radius:3px;letter-spacing:1px;text-transform:uppercase;}
+.sbadge.pend{background:rgba(255,193,7,0.1);color:#ffc107;}
+.sbadge.veri{background:rgba(19,136,8,0.12);color:var(--gl);}
+.emptya{text-align:center;padding:46px 18px;color:var(--muted);}
+
+/* PW MODAL */
+.pwm{position:fixed;inset:0;background:rgba(0,0,0,0.92);z-index:4000;display:none;align-items:center;justify-content:center;padding:18px;}
+.pwm.open{display:flex;}
+.pwbox{background:var(--dark2);border:1px solid var(--border);border-radius:14px;padding:26px;width:100%;max-width:290px;text-align:center;}
+.pwbox h3{font-family:'Rajdhani',sans-serif;font-size:19px;font-weight:700;color:var(--white);margin-bottom:4px;}
+.pwbox p{font-size:12px;color:var(--muted);margin-bottom:14px;}
+.pwbox input{width:100%;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:7px;padding:10px 12px;color:var(--text);font-family:'Exo 2',sans-serif;font-size:13px;outline:none;text-align:center;letter-spacing:3px;margin-bottom:8px;}
+.pwbox input:focus{border-color:var(--saffron);}
+.pwerr{color:#e24b4a;font-size:11px;margin-bottom:6px;display:none;}
+
+.toast{position:fixed;bottom:18px;right:18px;background:var(--card);border:1px solid var(--saffron);border-radius:9px;padding:12px 18px;z-index:9999;font-size:12px;transform:translateY(70px);opacity:0;transition:.35s;max-width:280px;}
+.toast.show{transform:translateY(0);opacity:1;}
+
+@media(max-width:900px){.nav-links,.nav-cta{display:none;}.ham{display:flex;}.ftop{grid-template-columns:1fr 1fr;}.lbhdr,.lbr{grid-template-columns:42px 1fr 72px 62px;}.lbhc:nth-child(n+5),.lbr>*:nth-child(n+5){display:none;}}
+@media(max-width:600px){.ftop{grid-template-columns:1fr;}.hbtns{flex-direction:column;align-items:center;}.frow{grid-template-columns:1fr;}.lbhdr,.lbr{grid-template-columns:34px 1fr 58px;}.lbhc:nth-child(n+4),.lbr>*:nth-child(n+4){display:none;}.tgrid{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="ni">
+    <a href="#" class="nl">
+      <div class="nli">GE</div>
+      <div><div class="nlt">GUJJU<span style="color:var(--saffron)">ESPORTS</span></div><span class="nls">GUJARAT'S NO.1</span></div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#games">Games</a></li>
+      <li><a href="#tiers">Rank Tiers</a></li>
+      <li><a href="#how-it-works">How It Works</a></li>
+      <li><a href="#schedule">Schedule</a></li>
+      <li><a href="#leaderboard">Leaderboard</a></li>
+      <li><a href="#team">Team</a></li>
+    </ul>
+    <button class="nav-cta" onclick="openModal()">Register — ₹50</button>
+    <button class="ham" onclick="toggleMenu()"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mm" id="mm">
+  <a href="#games" onclick="toggleMenu()">Games</a>
+  <a href="#tiers" onclick="toggleMenu()">Rank Tiers</a>
+  <a href="#how-it-works" onclick="toggleMenu()">How It Works</a>
+  <a href="#schedule" onclick="toggleMenu()">Schedule</a>
+  <a href="#leaderboard" onclick="toggleMenu()">Leaderboard</a>
+  <a href="#team" onclick="toggleMenu()">Team</a>
+  <a href="#" onclick="openModal();toggleMenu();return false;" style="color:var(--saffron);font-weight:700;">Register — ₹50</a>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hbg"></div><div class="hgrid"></div>
+  <div class="hc">
+    <div class="hbadge">🏆 Entry ₹50 · Ranked Tournaments · Win Real Cash</div>
+    <h1>GUJJU<span>ESPORTS</span></h1>
+    <div class="htag">GUJARAT'S NO.1 ESPORTS BRAND</div>
+    <p class="hdesc">Gujarat's most competitive esports platform. Rank-based tournaments for CoC &amp; BGMI — compete against players at your exact level. ₹50 entry, real cash prizes every bracket.</p>
+    <div class="prize-strip">
+      <div class="pp f">🥇 1st — ₹1,500</div>
+      <div class="pp s">🥈 2nd — ₹1,000</div>
+      <div class="pp t">🥉 3rd — ₹500</div>
+    </div>
+    <div class="hgames">
+      <span class="gchip">⚔️ Clash of Clans</span>
+      <span class="gchip">🔫 BGMI</span>
+      <span class="gchip">💀 Call of Duty</span>
+    </div>
+    <div class="hbtns">
+      <button class="btn-p" onclick="openModal()">Register Now — ₹50 →</button>
+      <a href="#tiers" class="btn-o">View Rank Tiers</a>
+    </div>
+  </div>
+  <div class="hscroll">SCROLL</div>
+</section>
+
+<!-- STATS STRIP -->
+<div class="stats-strip">
+  <div class="sg">
+    <div class="si"><div class="num" id="cp">0</div><div class="lbl">Registered Players</div></div>
+    <div class="si"><div class="num" id="ct">0</div><div class="lbl">Tournaments Hosted</div></div>
+    <div class="si"><div class="num" id="cv">₹0</div><div class="lbl">Prize Distributed</div></div>
+    <div class="si"><div class="num">3</div><div class="lbl">Games Supported</div></div>
+  </div>
+</div>
+
+<!-- GAMES -->
+<section id="games">
+  <div class="slabel">Our Games</div>
+  <div class="stitle">Pick Your Battlefield</div>
+  <p class="ssub">Rank-based matchmaking for CoC and BGMI — fair competition guaranteed. CoD is fully open entry.</p>
+  <div class="prize-banner">
+    <div class="pb-lbl">Prize Pool — Per Tournament Bracket</div>
+    <div class="pb f"><span class="pi">🥇</span><div class="pp2">1st Place</div><div class="pa">₹1,500</div></div>
+    <div class="pb s"><span class="pi">🥈</span><div class="pp2">2nd Place</div><div class="pa">₹1,000</div></div>
+    <div class="pb t"><span class="pi">🥉</span><div class="pp2">3rd Place</div><div class="pa">₹500</div></div>
+  </div>
+  <p class="pb-note">Each rank-tier bracket has its own independent prize pool.</p>
+  <div class="games-grid">
+    <div class="gc" onclick="openModal('coc')">
+      <div class="hot">Ranked</div>
+      <div class="gico coc">⚔️</div>
+      <h3>Clash of Clans</h3>
+      <p>Your Town Hall level (TH 1–18) determines your bracket. Fight clans at the same TH level — no unfair matchups.</p>
+      <div class="rank-preview">
+        <span class="rm r-th1">TH 1–7 Starter</span>
+        <span class="rm r-th2">TH 8–10 Warrior</span>
+        <span class="rm r-th3">TH 11–13 Elite</span>
+        <span class="rm r-th4">TH 14–18 Legend</span>
+      </div>
+      <div class="ger"><span class="ge">₹50 Entry</span><span class="gp">🏆 ₹1500 / ₹1000 / ₹500</span></div>
+    </div>
+    <div class="gc" onclick="openModal('bgmi')">
+      <div class="hot">Ranked</div>
+      <div class="gico bgmi">🔫</div>
+      <h3>BGMI</h3>
+      <p>Your current season rank (Bronze → Conqueror) places you in the right bracket — no smurfs, no mismatches.</p>
+      <div class="rank-preview">
+        <span class="rm r-bro">Bronze–Gold</span>
+        <span class="rm r-pla">Plat–Diamond</span>
+        <span class="rm r-cro">Crown–Ace M</span>
+        <span class="rm r-con">Ace D–Conqueror</span>
+      </div>
+      <div class="ger"><span class="ge">₹50 Entry</span><span class="gp">🏆 ₹1500 / ₹1000 / ₹500</span></div>
+    </div>
+    <div class="gc" onclick="openModal('cod')">
+      <div class="gico cod">💀</div>
+      <h3>Call of Duty</h3>
+      <p>Open-entry squad tournament — no rank restrictions. All players compete in one open bracket. May the best team win.</p>
+      <div class="rank-preview">
+        <span class="rm cod-open" style="font-size:11px;padding:3px 10px;">✓ Open for All — No Rank Required</span>
+      </div>
+      <div class="ger"><span class="ge">₹50 Entry</span><span class="gp">🏆 ₹1500 / ₹1000 / ₹500</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- RANK TIERS -->
+<section id="tiers" class="alt">
+  <div class="slabel">Tournament Brackets</div>
+  <div class="stitle">Rank-Based Tiers</div>
+  <p class="ssub">Every tier runs its own tournament with a full prize pool. Enter your tier — win ₹1,500 / ₹1,000 / ₹500.</p>
+  <div class="tier-tabs">
+    <button class="ttab active" onclick="switchTier('bgmi',this)">🔫 BGMI Tiers</button>
+    <button class="ttab" onclick="switchTier('coc',this)">⚔️ CoC Tiers</button>
+    <button class="ttab" onclick="switchTier('cod',this)">💀 CoD</button>
+  </div>
+
+  <!-- BGMI -->
+  <div class="tp active" id="tp-bgmi">
+    <div class="tgrid">
+      <div class="tc tc-t1">
+        <div class="tch"><div class="tn">🟢 Rookie League</div><span class="ttg ttg-t1">Tier 1</span></div>
+        <div class="tcb">
+          <div class="tranks">
+            <span class="trb r-bro">🥉 Bronze</span><span class="trb r-sil">🥈 Silver</span><span class="trb r-gol">🥇 Gold</span>
+          </div>
+          <div class="tpr"><span class="tpz g">🥇 ₹1,500</span><span class="tpz s">🥈 ₹1,000</span><span class="tpz b">🥉 ₹500</span></div>
+          <div class="te">Entry: ₹50 · For new &amp; casual players</div>
+        </div>
+      </div>
+      <div class="tc tc-t2">
+        <div class="tch"><div class="tn">🟠 Warrior League</div><span class="ttg ttg-t2">Tier 2</span></div>
+        <div class="tcb">
+          <div class="tranks">
+            <span class="trb r-pla">💎 Platinum</span><span class="trb r-dia">💜 Diamond</span>
+          </div>
+          <div class="tpr"><span class="tpz g">🥇 ₹1,500</span><span class="tpz s">🥈 ₹1,000</span><span class="tpz b">🥉 ₹500</span></div>
+          <div class="te">Entry: ₹50 · Intermediate players</div>
+        </div>
+      </div>
+      <div class="tc tc-t3">
+        <div class="tch"><div class="tn">🔴 Elite League</div><span class="ttg ttg-t3">Tier 3</span></div>
+        <div class="tcb">
+          <div class="tranks">
+            <span class="trb r-cro">👑 Crown</span><span class="trb r-ace">🔴 Ace</span><span class="trb r-acm">🔥 Ace Master</span>
+          </div>
+          <div class="tpr"><span class="tpz g">🥇 ₹1,500</span><span class="tpz s">🥈 ₹1,000</span><span class="tpz b">🥉 ₹500</span></div>
+          <div class="te">Entry: ₹50 · Advanced competitive players</div>
+        </div>
+      </div>
+      <div class="tc tc-t4">
+        <div class="tch"><div class="tn">🟣 Champions</div><span class="ttg ttg-t4">Tier 4</span></div>
+        <div class="tcb">
+          <div class="tranks">
+            <span class="trb r-acd">⚡ Ace Dominator</span><span class="trb r-con">👾 Conqueror</span>
+          </div>
+          <div class="tpr"><span class="tpz g">🥇 ₹1,500</span><span class="tpz s">🥈 ₹1,000</span><span class="tpz b">🥉 ₹500</span></div>
+          <div class="te">Entry: ₹50 · Gujarat's top BGMI players</div>
+        </div>
+      </div>
+    </div>
+    <p style="font-size:11px;color:var(--muted);margin-top:14px;">⚠ Your current season rank at registration determines your tier. Screenshot proof may be required on Discord.</p>
+  </div>
+
+  <!-- COC -->
+  <div class="tp" id="tp-coc">
+    <div class="tgrid">
+      <div class="tc tc-t1">
+        <div class="tch"><div class="tn">🟢 Starter Clan</div><span class="ttg ttg-t1">Tier 1</span></div>
+        <div class="tcb">
+          <div class="tranks">
+            <span class="trb r-th1">TH 1</span><span class="trb r-th1">TH 2</span><span class="trb r-th1">TH 3</span><span class="trb r-th1">TH 4</span><span class="trb r-th1">TH 5</span><span class="trb r-th1">TH 6</span><span class="trb r-th1">TH 7</span>
+          </div>
+          <div class="tpr"><span class="tpz g">🥇 ₹1,500</span><span class="tpz s">🥈 ₹1,000</span><span class="tpz b">🥉 ₹500</span></div>
+          <div class="te">Entry: ₹50 · New &amp; growing clans</div>
+        </div>
+      </div>
+      <div class="tc tc-t2">
+        <div class="tch"><div class="tn">🟠 Rising Clan</div><span class="ttg ttg-t2">Tier 2</span></div>
+        <div class="tcb">
+          <div class="tranks">
+            <span class="trb r-th2">TH 8</span><span class="trb r-th2">TH 9</span><span class="trb r-th2">TH 10</span>
+          </div>
+          <div class="tpr"><span class="tpz g">🥇 ₹1,500</span><span class="tpz s">🥈 ₹1,000</span><span class="tpz b">🥉 ₹500</span></div>
+          <div class="te">Entry: ₹50 · Mid-level war clans</div>
+        </div>
+      </div>
+      <div class="tc tc-t3">
+        <div class="tch"><div class="tn">🔴 War Clan</div><span class="ttg ttg-t3">Tier 3</span></div>
+        <div class="tcb">
+          <div class="tranks">
+            <span class="trb r-th3">TH 11</span><span class="trb r-th3">TH 12</span><span class="trb r-th3">TH 13</span>
+          </div>
+          <div class="tpr"><span class="tpz g">🥇 ₹1,500</span><span class="tpz s">🥈 ₹1,000</span><span class="tpz b">🥉 ₹500</span></div>
+          <div class="te">Entry: ₹50 · Experienced war clans</div>
+        </div>
+      </div>
+      <div class="tc tc-t4">
+        <div class="tch"><div class="tn">🟣 Legend Clan</div><span class="ttg ttg-t4">Tier 4</span></div>
+        <div class="tcb">
+          <div class="tranks">
+            <span class="trb r-th4">TH 14</span><span class="trb r-th4">TH 15</span><span class="trb r-th4">TH 16</span><span class="trb r-th4">TH 17</span><span class="trb r-th4">TH 18</span>
+          </div>
+          <div class="tpr"><span class="tpz g">🥇 ₹1,500</span><span class="tpz s">🥈 ₹1,000</span><span class="tpz b">🥉 ₹500</span></div>
+          <div class="te">Entry: ₹50 · Gujarat's elite clans (TH 14–18)</div>
+        </div>
+      </div>
+    </div>
+    <p style="font-size:11px;color:var(--muted);margin-top:14px;">⚠ Main Town Hall level used for tier placement. Verified via in-game screenshot on Discord.</p>
+  </div>
+
+  <!-- COD -->
+  <div class="tp" id="tp-cod">
+    <div style="background:var(--card);border:1px solid rgba(76,175,80,0.25);border-radius:14px;padding:28px;text-align:center;max-width:460px;margin:0 auto;">
+      <div style="font-size:44px;margin-bottom:12px;">💀</div>
+      <h3 style="font-family:'Rajdhani',sans-serif;font-size:26px;font-weight:700;color:var(--white);margin-bottom:7px;">Call of Duty — Open Entry</h3>
+      <p style="font-size:13px;color:var(--muted);line-height:1.7;margin-bottom:18px;">No rank restrictions. All players compete in one open bracket. Squads of all levels welcome — may the best team win.</p>
+      <div style="display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-bottom:14px;">
+        <span class="tpz g" style="font-size:13px;padding:7px 14px;">🥇 ₹1,500</span>
+        <span class="tpz s" style="font-size:13px;padding:7px 14px;">🥈 ₹1,000</span>
+        <span class="tpz b" style="font-size:13px;padding:7px 14px;">🥉 ₹500</span>
+      </div>
+      <span class="cod-open" style="font-size:12px;padding:5px 16px;">✓ Open for All Ranks · ₹50 Entry</span>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section id="how-it-works">
+  <div class="slabel">Process</div>
+  <div class="stitle">How It Works</div>
+  <p class="ssub">Four simple steps to enter any Gujju Esports tournament.</p>
+  <div class="hsteps">
+    <div class="hsc"><div class="hnum">1</div><span class="hico">📋</span><h4>Fill Details</h4><p>Enter your name, game UID, game choice, rank or TH level, and contact info.</p></div>
+    <div class="hsc"><div class="hnum">2</div><span class="hico">💳</span><h4>Pay ₹50</h4><p>Scan the UPI QR code or copy the UPI ID and pay ₹50 via GPay, PhonePe, or Paytm.</p></div>
+    <div class="hsc"><div class="hnum">3</div><span class="hico">🔢</span><h4>Submit UTR</h4><p>Enter your 12-digit UTR / Transaction ID to confirm your ₹50 payment.</p></div>
+    <div class="hsc"><div class="hnum">4</div><span class="hico">⚔️</span><h4>Join Discord</h4><p>Join our Discord for room codes, match times, bracket updates and prize info.</p></div>
+  </div>
+</section>
+
+<!-- SCHEDULE -->
+<section id="schedule" class="alt">
+  <div class="slabel">Match Schedule</div>
+  <div class="stitle">Upcoming Events</div>
+  <p class="ssub">All times IST. Each tier runs as a separate bracket with its own ₹3,000 prize pool.</p>
+  <div class="stabs">
+    <button class="stab active" onclick="filterSch('all',this)">All</button>
+    <button class="stab" onclick="filterSch('coc',this)">CoC</button>
+    <button class="stab" onclick="filterSch('bgmi',this)">BGMI</button>
+    <button class="stab" onclick="filterSch('cod',this)">CoD</button>
+  </div>
+  <div class="slist" id="slist">
+    <div class="si-item" data-game="bgmi">
+      <div class="sdate"><div class="day">18</div><div class="mon">Mar</div></div><div class="sdivider"></div>
+      <div class="sinfo"><h4>BGMI — Rookie League (Bronze–Gold)</h4><p>8:00 PM IST · Online · Open Registration</p></div>
+      <div class="smeta"><span class="sgt">BGMI</span><span class="ttsm ttg-t1">Tier 1</span><span class="sst live">🔴 Registering</span></div>
+      <div class="spr">₹3,000</div>
+    </div>
+    <div class="si-item" data-game="bgmi">
+      <div class="sdate"><div class="day">19</div><div class="mon">Mar</div></div><div class="sdivider"></div>
+      <div class="sinfo"><h4>BGMI — Warrior League (Platinum–Diamond)</h4><p>9:00 PM IST · Online · Open Registration</p></div>
+      <div class="smeta"><span class="sgt">BGMI</span><span class="ttsm ttg-t2">Tier 2</span><span class="sst up">Upcoming</span></div>
+      <div class="spr">₹3,000</div>
+    </div>
+    <div class="si-item" data-game="bgmi">
+      <div class="sdate"><div class="day">21</div><div class="mon">Mar</div></div><div class="sdivider"></div>
+      <div class="sinfo"><h4>BGMI — Elite League (Crown–Ace Master)</h4><p>9:00 PM IST · Online · Open Registration</p></div>
+      <div class="smeta"><span class="sgt">BGMI</span><span class="ttsm ttg-t3">Tier 3</span><span class="sst up">Upcoming</span></div>
+      <div class="spr">₹3,000</div>
+    </div>
+    <div class="si-item" data-game="bgmi">
+      <div class="sdate"><div class="day">23</div><div class="mon">Mar</div></div><div class="sdivider"></div>
+      <div class="sinfo"><h4>BGMI — Champions League (Ace D–Conqueror)</h4><p>9:30 PM IST · Online · Invite &amp; Register</p></div>
+      <div class="smeta"><span class="sgt">BGMI</span><span class="ttsm ttg-t4">Tier 4</span><span class="sst up">Upcoming</span></div>
+      <div class="spr">₹3,000</div>
+    </div>
+    <div class="si-item" data-game="coc">
+      <div class="sdate"><div class="day">20</div><div class="mon">Mar</div></div><div class="sdivider"></div>
+      <div class="sinfo"><h4>CoC — Starter Clan Cup (TH 1–7)</h4><p>7:00 PM IST · Online · Clans Welcome</p></div>
+      <div class="smeta"><span class="sgt">CoC</span><span class="ttsm ttg-t1">Tier 1</span><span class="sst up">Upcoming</span></div>
+      <div class="spr">₹3,000</div>
+    </div>
+    <div class="si-item" data-game="coc">
+      <div class="sdate"><div class="day">22</div><div class="mon">Mar</div></div><div class="sdivider"></div>
+      <div class="sinfo"><h4>CoC — Rising Clan Battle (TH 8–10)</h4><p>7:30 PM IST · Online · Clan Wars Format</p></div>
+      <div class="smeta"><span class="sgt">CoC</span><span class="ttsm ttg-t2">Tier 2</span><span class="sst up">Upcoming</span></div>
+      <div class="spr">₹3,000</div>
+    </div>
+    <div class="si-item" data-game="coc">
+      <div class="sdate"><div class="day">24</div><div class="mon">Mar</div></div><div class="sdivider"></div>
+      <div class="sinfo"><h4>CoC — War Clan Championship (TH 11–13)</h4><p>8:00 PM IST · Online · Elite Competition</p></div>
+      <div class="smeta"><span class="sgt">CoC</span><span class="ttsm ttg-t3">Tier 3</span><span class="sst up">Upcoming</span></div>
+      <div class="spr">₹3,000</div>
+    </div>
+    <div class="si-item" data-game="coc">
+      <div class="sdate"><div class="day">26</div><div class="mon">Mar</div></div><div class="sdivider"></div>
+      <div class="sinfo"><h4>CoC — Legend Clan Invitational (TH 14–18)</h4><p>8:00 PM IST · Online · Gujarat's Finest</p></div>
+      <div class="smeta"><span class="sgt">CoC</span><span class="ttsm ttg-t4">Tier 4</span><span class="sst up">Upcoming</span></div>
+      <div class="spr">₹3,000</div>
+    </div>
+    <div class="si-item" data-game="cod">
+      <div class="sdate"><div class="day">25</div><div class="mon">Mar</div></div><div class="sdivider"></div>
+      <div class="sinfo"><h4>Call of Duty — Open Squad Showdown</h4><p>9:00 PM IST · Online · All Ranks Welcome</p></div>
+      <div class="smeta"><span class="sgt">CoD</span><span class="cod-open">Open</span><span class="sst up">Upcoming</span></div>
+      <div class="spr">₹3,000</div>
+    </div>
+  </div>
+</section>
+
+<!-- LEADERBOARD -->
+<section id="leaderboard">
+  <div class="slabel">Hall of Fame</div>
+  <div class="stitle">Leaderboard</div>
+  <p class="ssub">Season rankings updated after every tournament.</p>
+  <div style="display:flex;gap:7px;margin-bottom:14px;"><button class="stab active">All Time</button></div>
+  <div class="lbw">
+    <div class="lbhdr">
+      <div class="lbhc">#</div><div class="lbhc">Player</div><div class="lbhc r">Points</div><div class="lbhc r">Wins</div><div class="lbhc r">K/D</div><div class="lbhc r">Prize</div>
+    </div>
+    <div id="lbb"></div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section id="team" class="alt">
+  <div class="slabel">The Founders</div>
+  <div class="stitle">Who We Are</div>
+  <p class="ssub">The people behind Gujarat's fastest-growing esports platform.</p>
+  <div class="tgrid2">
+    <div class="tcard"><div class="tav">AP</div><div class="tnm">Akshay Pandya</div><div class="trl">Co-Founder</div><p class="tbi">The visionary behind Gujju Esports. Akshay started this with a mission to give every Gujarati gamer a fair platform to compete and prove their skills on a real stage.</p></div>
+    <div class="tcard"><div class="tav">FB</div><div class="tnm">FBDXFZ</div><div class="trl">CEO</div><p class="tbi">Leading Gujju Esports from the front. Strategist, competitor, and community builder — driving the brand to Gujarat's undisputed No.1 spot in esports.</p></div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="ftop">
+    <div>
+      <div class="flogo">GUJJU<span>ESPORTS</span></div>
+      <p class="fdesc">🇮🇳 Gujarat's No.1 Esports Brand — Rank-based tournaments, real cash prizes, pure passion for the game.</p>
+      <div class="fsoc">
+        <a href="https://youtube.com/@gujjuclasher" target="_blank" class="fsb">▶</a>
+        <a href="https://www.instagram.com/gujju.esports?igsh=YXVwNGNhNm4xcDZs" target="_blank" class="fsb">📷</a>
+        <a href="https://discord.gg/9Bcrzwqbv" target="_blank" class="fsb">💬</a>
+      </div>
+    </div>
+    <div class="fcol"><h4>Tournaments</h4><a href="#" onclick="openModal();return false;">Register Now</a><a href="#tiers">Rank Tiers</a><a href="#schedule">Schedule</a><a href="#leaderboard">Leaderboard</a></div>
+    <div class="fcol"><h4>Games</h4><a href="#games">Clash of Clans</a><a href="#games">BGMI</a><a href="#games">Call of Duty</a></div>
+    <div class="fcol"><h4>Connect</h4><a href="https://youtube.com/@gujjuclasher" target="_blank">YouTube</a><a href="https://www.instagram.com/gujju.esports?igsh=YXVwNGNhNm4xcDZs" target="_blank">Instagram</a><a href="https://discord.gg/9Bcrzwqbv" target="_blank">Discord</a><a href="#team">About Us</a></div>
+  </div>
+  <div class="fbot">
+    <p>© 2025 Gujju Esports. All rights reserved. Made with ❤️ in Gujarat 🇮🇳</p>
+    <button class="alink" onclick="openPwModal()">⚙ Admin</button>
+  </div>
+</footer>
+
+<!-- REGISTRATION MODAL -->
+<div class="moverlay" id="regModal">
+  <div class="mbox">
+    <div class="mhdr"><h3 id="mtitle">Player Details (1/3)</h3><button class="mcls" onclick="closeModal()">✕</button></div>
+    <div class="mbody">
+      <div class="sindic">
+        <div class="sdot active" id="sd1">1</div><div class="sline inactive" id="sl1"></div>
+        <div class="sdot pending" id="sd2">2</div><div class="sline inactive" id="sl2"></div>
+        <div class="sdot pending" id="sd3">3</div>
+      </div>
+      <!-- STEP 1 -->
+      <div id="step1">
+        <div class="frow">
+          <div class="fg"><label>In-Game Name *</label><input type="text" id="rname" placeholder="YourGameName"/></div>
+          <div class="fg"><label>Game UID *</label><input type="text" id="ruid" placeholder="12345678"/></div>
+        </div>
+        <div class="fg">
+          <label>Select Game *</label>
+          <select id="rgame" onchange="onGameChange()">
+            <option value="">-- Choose Game --</option>
+            <option value="Clash of Clans">⚔️ Clash of Clans</option>
+            <option value="BGMI">🔫 BGMI</option>
+            <option value="Call of Duty">💀 Call of Duty</option>
+          </select>
+        </div>
+        <div class="fg" id="rankgrp" style="display:none">
+          <label id="ranklbl">Rank / Level *</label>
+          <select id="rrank"></select>
+          <div class="rib" id="rankinfo"></div>
+        </div>
+        <div class="frow">
+          <div class="fg"><label>WhatsApp Number *</label><input type="tel" id="rphone" placeholder="+91 98765 43210"/></div>
+          <div class="fg"><label>City / State *</label><input type="text" id="rcity" placeholder="Ahmedabad, GJ"/></div>
+        </div>
+        <div class="fg"><label>Team / Clan Name (optional)</label><input type="text" id="rteam" placeholder="Your clan or squad name"/></div>
+        <div class="fg"><label>How did you find us?</label><select id="rsource"><option value="">-- Select --</option><option value="YouTube">YouTube</option><option value="Instagram">Instagram</option><option value="Discord">Discord</option><option value="Friend">Friend</option><option value="Other">Other</option></select></div>
+        <button class="mbtn" onclick="goStep2()">Next — Pay ₹50 →</button>
+      </div>
+      <!-- STEP 2 -->
+      <div id="step2" style="display:none">
+        <div class="pamount"><div class="rp">₹50</div><p>TOURNAMENT REGISTRATION FEE</p></div>
+        <div class="qrwrap"><div id="qrcode"></div></div>
+        <div class="upibox"><div class="upilbl">UPI ID — Send ₹50 here</div><div class="upirow"><span class="upiid" id="upidsp">YOUR_UPI_ID@upi</span><button class="cbtn" onclick="copyUPI()">Copy</button></div></div>
+        <ul class="psteps">
+          <li><span>1.</span> Open GPay, PhonePe, Paytm or any UPI app</li>
+          <li><span>2.</span> Scan QR code or enter the UPI ID above</li>
+          <li><span>3.</span> Send exactly ₹50 — add note "GujjuEsports"</li>
+          <li><span>4.</span> Save your UTR / Transaction ID after payment</li>
+        </ul>
+        <button class="mbtn" onclick="goStep(3)">I've Paid — Enter UTR →</button>
+        <button class="mbtn-o" onclick="goStep(1)">← Back</button>
+      </div>
+      <!-- STEP 3 -->
+      <div id="step3" style="display:none">
+        <div class="utrbox"><p>Enter the <strong>UTR Number</strong> (12-digit Transaction ID) shown in your UPI payment confirmation. This verifies your ₹50 payment.</p></div>
+        <div class="fg"><label>UTR / Transaction ID *</label><input type="text" id="rutr" placeholder="e.g. 412345678901" maxlength="22" style="font-family:monospace;letter-spacing:1px;"/></div>
+        <div class="fg"><label>Note for Organizer (optional)</label><input type="text" id="rnote" placeholder="Any message"/></div>
+        <button class="mbtn" onclick="submitReg()">Confirm & Complete Registration →</button>
+        <button class="mbtn-o" onclick="goStep(2)">← Back</button>
+      </div>
+      <!-- SUCCESS -->
+      <div id="stepSuc" style="display:none">
+        <div class="regsuc">
+          <span class="si2">🎉</span>
+          <h3>You're Registered!</h3>
+          <p>Registration submitted. Payment will be verified within 24 hours. Join Discord for match schedule and room codes.</p>
+          <div class="sumbox" id="sumbox"></div>
+          <a href="https://discord.gg/9Bcrzwqbv" target="_blank" class="mbtn" style="text-decoration:none;display:block;text-align:center;margin-bottom:7px;">Join Discord →</a>
+          <button class="mbtn-o" onclick="closeModal()">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PASSWORD MODAL -->
+<div class="pwm" id="pwm">
+  <div class="pwbox">
+    <h3>🔐 Admin Login</h3>
+    <p>Enter admin password to continue</p>
+    <input type="password" id="pwin" placeholder="••••••••" onkeydown="if(event.key==='Enter')checkPw()"/>
+    <div class="pwerr" id="pwerr">Wrong password.</div>
+    <button class="mbtn" onclick="checkPw()">Open Admin Panel</button>
+    <button class="mbtn-o" onclick="closePwModal()">Cancel</button>
+  </div>
+</div>
+
+<!-- ADMIN PANEL -->
+<div class="aoverlay" id="adminPanel">
+  <div class="ahdr"><h2>⚙ GUJJU ESPORTS — ADMIN PANEL</h2><div style="display:flex;gap:8px;"><button class="abtn" onclick="closeAdmin()">✕ Close</button></div></div>
+  <div class="abody">
+    <div class="astats" id="astats"></div>
+    <div class="aacts">
+      <div class="asearch"><input type="text" id="asrch" placeholder="Search name, UID, rank, phone..." oninput="renderAdmin()"/></div>
+      <select id="agf" class="asearch" style="flex:0;min-width:120px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:7px;padding:7px 10px;color:var(--text);font-family:'Exo 2',sans-serif;font-size:11px;outline:none;" onchange="renderAdmin()">
+        <option value="">All Games</option><option value="Clash of Clans">Clash of Clans</option><option value="BGMI">BGMI</option><option value="Call of Duty">Call of Duty</option>
+      </select>
+      <button class="abtn" onclick="exportCSV()">📥 Export CSV</button>
+      <button class="abtn" onclick="renderAdmin()">🔄 Refresh</button>
+      <button class="abtn danger" onclick="if(confirm('Delete ALL registrations?')){localStorage.removeItem('ge_reg');renderAdmin();}">🗑 Clear All</button>
+    </div>
+    <div class="atwrap">
+      <table class="atable">
+        <thead><tr><th>#</th><th>Reg ID</th><th>Date &amp; Time</th><th>Player Name</th><th>Game UID</th><th>Game</th><th>Rank / TH</th><th>Tier</th><th>WhatsApp</th><th>City</th><th>Team</th><th>UTR</th><th>Source</th><th>Fee</th><th>Status</th></tr></thead>
+        <tbody id="atbody"></tbody>
+      </table>
+      <div class="emptya" id="emptya"><span style="font-size:38px;display:block;margin-bottom:9px;">📋</span><p style="font-size:13px;color:var(--text)">No registrations yet</p></div>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script>
+// CONFIG
+const CFG={
+  UPI_ID:'YOUR_UPI_ID@upi',
+  UPI_NAME:'Gujju Esports',
+  ENTRY_FEE:50,
+  ADMIN_PASS:'gujju@2025',
+  SHEET_URL:'https://script.google.com/macros/s/AKfycbyE2GdwLX55Km1--vzY4of_K30Hn_MM536_w3tSeR28Mw2Cyy-M2OhmUCPcGgQClrCU/exec',
+};
+
+// RANK / TH DATA
+const RD={
+  'Clash of Clans':{
+    lbl:'Town Hall Level *',
+    opts:['TH 1','TH 2','TH 3','TH 4','TH 5','TH 6','TH 7','TH 8','TH 9','TH 10','TH 11','TH 12','TH 13','TH 14','TH 15','TH 16','TH 17','TH 18'],
+    tier(r){const n=parseInt(r.replace('TH ',''));return n<=7?'Tier 1 — Starter Clan':n<=10?'Tier 2 — Rising Clan':n<=13?'Tier 3 — War Clan':'Tier 4 — Legend Clan';},
+    info(r){return `Placed in <strong>${RD['Clash of Clans'].tier(r)}</strong>. Prize: 🥇₹1,500 🥈₹1,000 🥉₹500`;}
+  },
+  'BGMI':{
+    lbl:'Current Season Rank *',
+    opts:['Bronze','Silver','Gold','Platinum','Diamond','Crown','Ace','Ace Master','Ace Dominator','Conqueror'],
+    tier(r){if(['Bronze','Silver','Gold'].includes(r))return 'Tier 1 — Rookie League';if(['Platinum','Diamond'].includes(r))return 'Tier 2 — Warrior League';if(['Crown','Ace','Ace Master'].includes(r))return 'Tier 3 — Elite League';return 'Tier 4 — Champions League';},
+    info(r){return `Placed in <strong>${RD['BGMI'].tier(r)}</strong>. Prize: 🥇₹1,500 🥈₹1,000 🥉₹500`;}
+  },
+  'Call of Duty':{lbl:null,opts:[],tier:()=>'Open Bracket',info:()=>''}
+};
+
+function toggleMenu(){document.getElementById('mm').classList.toggle('open');}
+
+// COUNTER
+function animCount(id,to,pre,suf,dur){
+  const el=document.getElementById(id);if(!el)return;
+  let v=0,inc=to/60;
+  const t=setInterval(()=>{v+=inc;if(v>=to){v=to;clearInterval(t);}el.textContent=pre+Math.floor(v).toLocaleString('en-IN')+suf;},dur/60);
+}
+const io=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){animCount('cp',1240,'','',1200);animCount('ct',48,'','',1200);animCount('cv',19000,'₹','',1200);io.disconnect();}});},{threshold:.3});
+const ss=document.querySelector('.stats-strip');if(ss)io.observe(ss);
+
+// LEADERBOARD
+(function(){
+  const LB=[{r:1,n:'FBDXFZ',t:'Gujju Esports',p:3840,w:12,k:'4.8',pr:'₹8,500',c:'#FF6F00'},{r:2,n:'CoCMaster99',t:'AhmedabadKings',p:3210,w:9,k:'3.9',pr:'₹5,000',c:'#FF9800'},{r:3,n:'BGMIKing_GJ',t:'SuratSquad',p:2980,w:8,k:'4.2',pr:'₹4,200',c:'#FFA726'},{r:4,n:'RajkotSniper',t:'RajkotRaiders',p:2540,w:7,k:'3.5',pr:'₹3,000',c:'#7a7a9a'},{r:5,n:'BharuchBlaze',t:'BharuchFC',p:2100,w:5,k:'3.1',pr:'₹2,000',c:'#7a7a9a'}];
+  const rc=['go','si','br'];
+  document.getElementById('lbb').innerHTML=LB.map((p,i)=>`<div class="lbr"><div class="lbrk ${rc[i]||'no'}">${i===0?'🥇':i===1?'🥈':i===2?'🥉':'#'+p.r}</div><div class="lbpl"><div class="lbav" style="background:${p.c}">${p.n.slice(0,2).toUpperCase()}</div><div><div class="lbn">${p.n}</div><div class="lbt">${p.t}</div></div></div><div class="lbs h">${p.p.toLocaleString('en-IN')}</div><div class="lbs">${p.w}</div><div class="lbs">${p.k}</div><div class="lbs">${p.pr}</div></div>`).join('');
+})();
+
+// SCHEDULE FILTER
+function filterSch(g,btn){document.querySelectorAll('#schedule .stab').forEach(b=>b.classList.remove('active'));btn.classList.add('active');document.querySelectorAll('.si-item').forEach(el=>{el.style.display=(g==='all'||el.dataset.game===g)?'flex':'none';});}
+
+// TIER TABS
+function switchTier(id,btn){document.querySelectorAll('.ttab').forEach(b=>b.classList.remove('active'));btn.classList.add('active');document.querySelectorAll('.tp').forEach(p=>p.classList.remove('active'));document.getElementById('tp-'+id).classList.add('active');}
+
+// MODAL
+let curStep=1,qrDone=false;
+function openModal(game){document.getElementById('regModal').classList.add('open');document.body.style.overflow='hidden';if(game){const m={coc:'Clash of Clans',bgmi:'BGMI',cod:'Call of Duty'};document.getElementById('rgame').value=m[game]||'';onGameChange();}goStep(1);}
+function closeModal(){document.getElementById('regModal').classList.remove('open');document.body.style.overflow='';}
+document.getElementById('regModal').addEventListener('click',function(e){if(e.target===this)closeModal();});
+
+function goStep(n){
+  curStep=n;
+  [1,2,3].forEach(i=>{const el=document.getElementById('step'+i);if(el)el.style.display=i===n?'block':'none';});
+  document.getElementById('stepSuc').style.display='none';
+  for(let i=1;i<=3;i++){
+    const d=document.getElementById('sd'+i);if(d)d.className='sdot '+(i<n?'done':i===n?'active':'pending');
+    const l=document.getElementById('sl'+i);if(l&&i<3)l.className='sline '+(i<n?'done':i===n?'active':'inactive');
+  }
+  const titles={1:'Player Details (1/3)',2:'Pay ₹50 (2/3)',3:'Confirm Payment (3/3)'};
+  document.getElementById('mtitle').textContent=titles[n]||'Register';
+  if(n===2&&!qrDone)buildQR();
+}
+function onGameChange(){
+  const game=document.getElementById('rgame').value;
+  const rg=document.getElementById('rankgrp');
+  const rs=document.getElementById('rrank');
+  const ri=document.getElementById('rankinfo');
+  const rl=document.getElementById('ranklbl');
+  const d=RD[game];
+  if(d&&d.opts.length>0){
+    rl.textContent=d.lbl;
+    rs.innerHTML='<option value="">-- Select --</option>'+d.opts.map(o=>`<option value="${o}">${o}</option>`).join('');
+    rs.onchange=function(){if(this.value&&d.info){ri.innerHTML='<p>'+d.info(this.value)+'</p>';ri.classList.add('show');}else{ri.classList.remove('show');}};
+    rg.style.display='block';ri.classList.remove('show');
+  } else {rg.style.display='none';}
+}
+function buildQR(){
+  const upiLink=`upi://pay?pa=${encodeURIComponent(CFG.UPI_ID)}&pn=${encodeURIComponent(CFG.UPI_NAME)}&am=${CFG.ENTRY_FEE}&cu=INR&tn=GujjuEsports`;
+  document.getElementById('qrcode').innerHTML='';
+  try{new QRCode(document.getElementById('qrcode'),{text:upiLink,width:185,height:185,colorDark:'#000',colorLight:'#fff',correctLevel:QRCode.CorrectLevel.H});}
+  catch(e){document.getElementById('qrcode').innerHTML='<div style="padding:14px;font-size:12px;color:var(--muted);text-align:center">Use UPI ID below to pay.</div>';}
+  document.getElementById('upidsp').textContent=CFG.UPI_ID;
+  qrDone=true;
+}
+function copyUPI(){navigator.clipboard.writeText(CFG.UPI_ID).then(()=>showToast('✓ UPI ID copied!')).catch(()=>showToast('UPI ID: '+CFG.UPI_ID));}
+function goStep2(){
+  const name=document.getElementById('rname').value.trim();
+  const uid=document.getElementById('ruid').value.trim();
+  const game=document.getElementById('rgame').value;
+  const phone=document.getElementById('rphone').value.trim();
+  const city=document.getElementById('rcity').value.trim();
+  if(!name)return showToast('⚠ Enter your In-Game Name!');
+  if(!uid)return showToast('⚠ Enter your Game UID!');
+  if(!game)return showToast('⚠ Select a game!');
+  const d=RD[game];
+  if(d&&d.opts.length>0&&!document.getElementById('rrank').value)return showToast('⚠ Select your rank / TH level!');
+  if(!phone)return showToast('⚠ Enter WhatsApp number!');
+  if(!city)return showToast('⚠ Enter your city!');
+  goStep(2);
+}
+function submitReg(){
+  const utr=document.getElementById('rutr').value.trim();
+  if(!utr||utr.length<6)return showToast('⚠ Enter your UTR / Transaction ID!');
+  const game=document.getElementById('rgame').value;
+  const rankVal=document.getElementById('rrank')?.value||'—';
+  const d=RD[game];
+  const tier=d?d.tier(rankVal):'Open Bracket';
+  const now=new Date();
+  const reg={
+    id:'GE-'+now.getTime(),
+    timestamp:now.toLocaleString('en-IN',{day:'2-digit',month:'short',year:'numeric',hour:'2-digit',minute:'2-digit'}),
+    playerName:document.getElementById('rname').value.trim(),
+    gameUID:document.getElementById('ruid').value.trim(),
+    game,rankLevel:rankVal,tier,
+    phone:document.getElementById('rphone').value.trim(),
+    city:document.getElementById('rcity').value.trim(),
+    teamName:document.getElementById('rteam').value.trim()||'—',
+    utrNumber:utr,
+    note:document.getElementById('rnote').value.trim()||'—',
+    source:document.getElementById('rsource').value||'—',
+    status:'Pending Verification',entryFee:'₹'+CFG.ENTRY_FEE,
+  };
+  saveLocal(reg);postToSheet(reg);showSuccess(reg);
+}
+function saveLocal(reg){const e=JSON.parse(localStorage.getItem('ge_reg')||'[]');e.push(reg);localStorage.setItem('ge_reg',JSON.stringify(e));}
+function postToSheet(reg){if(!CFG.SHEET_URL)return;fetch(CFG.SHEET_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/json'},body:JSON.stringify(reg)}).catch(()=>{});}
+function showSuccess(reg){
+  [1,2,3].forEach(i=>{const el=document.getElementById('step'+i);if(el)el.style.display='none';});
+  document.getElementById('stepSuc').style.display='block';
+  document.getElementById('mtitle').textContent='✓ Registered!';
+  document.getElementById('sumbox').innerHTML=`<p><strong>Player:</strong> ${reg.playerName}</p><p><strong>Game:</strong> ${reg.game}</p><p><strong>Rank / TH:</strong> ${reg.rankLevel}</p><p><strong>Your Tier:</strong> ${reg.tier}</p><p><strong>WhatsApp:</strong> ${reg.phone}</p><p><strong>UTR Number:</strong> ${reg.utrNumber}</p><p><strong>Reg. ID:</strong> ${reg.id}</p><p style="color:var(--saffron);font-weight:600;margin-top:7px">⏳ Payment verified within 24 hrs.</p>`;
+  clearForm();showToast('🎉 Registration submitted!');
+}
+function clearForm(){['rname','ruid','rphone','rcity','rteam','rutr','rnote'].forEach(id=>{const el=document.getElementById(id);if(el)el.value='';});['rgame','rsource'].forEach(id=>{const el=document.getElementById(id);if(el)el.value='';});const rg=document.getElementById('rankgrp');if(rg)rg.style.display='none';qrDone=false;}
+
+// ADMIN
+function openPwModal(){document.getElementById('pwm').classList.add('open');}
+function closePwModal(){document.getElementById('pwm').classList.remove('open');document.getElementById('pwin').value='';document.getElementById('pwerr').style.display='none';}
+function checkPw(){if(document.getElementById('pwin').value===CFG.ADMIN_PASS){closePwModal();document.getElementById('adminPanel').classList.add('open');document.body.style.overflow='hidden';renderAdmin();}else{document.getElementById('pwerr').style.display='block';document.getElementById('pwin').value='';}}
+function closeAdmin(){document.getElementById('adminPanel').classList.remove('open');document.body.style.overflow='';}
+function getRegs(){return JSON.parse(localStorage.getItem('ge_reg')||'[]');}
+function renderAdmin(){
+  const srch=(document.getElementById('asrch')?.value||'').toLowerCase();
+  const gf=document.getElementById('agf')?.value||'';
+  const all=getRegs();
+  document.getElementById('astats').innerHTML=`<div class="astat"><div class="n">${all.length}</div><div class="l">Total</div></div><div class="astat"><div class="n">₹${all.length*CFG.ENTRY_FEE}</div><div class="l">Collected</div></div><div class="astat"><div class="n">${all.filter(r=>r.game==='Clash of Clans').length}</div><div class="l">CoC</div></div><div class="astat"><div class="n">${all.filter(r=>r.game==='BGMI').length}</div><div class="l">BGMI</div></div><div class="astat"><div class="n">${all.filter(r=>r.game==='Call of Duty').length}</div><div class="l">CoD</div></div>`;
+  let regs=all;
+  if(gf)regs=regs.filter(r=>r.game===gf);
+  if(srch)regs=regs.filter(r=>[(r.playerName||''),(r.gameUID||''),(r.phone||''),(r.city||''),(r.utrNumber||''),(r.rankLevel||''),(r.tier||'')].some(v=>v.toLowerCase().includes(srch)));
+  const tb=document.getElementById('atbody');
+  const em=document.getElementById('emptya');
+  if(!regs.length){tb.innerHTML='';em.style.display='block';return;}
+  em.style.display='none';
+  tb.innerHTML=regs.map((r,i)=>`<tr><td style="color:var(--muted)">${i+1}</td><td style="font-size:9px;font-family:monospace;color:var(--muted)">${r.id}</td><td style="white-space:nowrap;font-size:9px">${r.timestamp}</td><td><strong style="color:var(--white)">${esc(r.playerName)}</strong></td><td style="font-family:monospace;font-size:11px">${esc(r.gameUID)}</td><td>${esc(r.game)}</td><td style="font-weight:600;color:var(--sf-l)">${esc(r.rankLevel||'—')}</td><td style="font-size:10px;color:var(--muted)">${esc(r.tier||'—')}</td><td>${esc(r.phone)}</td><td>${esc(r.city)}</td><td style="color:var(--muted)">${esc(r.teamName)}</td><td style="font-family:monospace;color:var(--saffron);font-weight:600">${esc(r.utrNumber)}</td><td style="color:var(--muted)">${esc(r.source)}</td><td style="color:var(--gl);font-weight:600">${r.entryFee}</td><td><span class="sbadge ${r.status==='Verified'?'veri':'pend'}">${r.status}</span></td></tr>`).join('');
+}
+function esc(s){return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+function exportCSV(){
+  const regs=getRegs();if(!regs.length)return showToast('No registrations yet!');
+  const h=['#','Reg ID','Date & Time','Player Name','Game UID','Game','Rank / TH Level','Tournament Tier','WhatsApp','City','Team','UTR Number','Source','Entry Fee','Status'];
+  const rows=regs.map((r,i)=>[i+1,r.id,r.timestamp,r.playerName,r.gameUID,r.game,r.rankLevel||'—',r.tier||'—',r.phone,r.city,r.teamName,r.utrNumber,r.source,r.entryFee,r.status]);
+  const csv=[h,...rows].map(row=>row.map(v=>`"${String(v||'').replace(/"/g,'""')}"`).join(',')).join('\r\n');
+  const blob=new Blob(['\uFEFF'+csv],{type:'text/csv;charset=utf-8;'});
+  const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=`GujjuEsports_${new Date().toISOString().slice(0,10)}.csv`;a.click();
+  showToast('📥 CSV downloaded — open in Excel!');
+}
+let tt;
+function showToast(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');clearTimeout(tt);tt=setTimeout(()=>t.classList.remove('show'),3600);}
+document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',e=>{const tgt=document.querySelector(a.getAttribute('href'));if(tgt){e.preventDefault();tgt.scrollIntoView({behavior:'smooth'});}});});
+</script>
+</body>
+</html>
